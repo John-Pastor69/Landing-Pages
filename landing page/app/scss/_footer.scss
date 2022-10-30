@@ -1,0 +1,128 @@
+.footer {
+  background-color: $darkBlue;  
+  color: $white;
+  padding: 2.5rem;
+  text-align: center;
+
+  @include breakpoint-up(large) {
+    display: grid;
+    grid-template-columns:2fr 1fr 1fr 3fr;
+    grid-template-rows: 1fr auto;
+    grid-template-areas: 
+      "icons1 links1 links2 request1"
+      "icons2 links1 links2 request2";
+    justify-items: start;
+    gap: 1rem;
+  }
+
+  a {
+    color: $white;
+  }
+
+  &_icons {
+    &.set1 {
+      display: inline-block;
+      padding-bottom: 1.5625rem;
+      
+      @include breakpoint-up(large) {
+        grid-area: icons1;
+      }
+    }
+
+    &.set2 {
+      @include breakpoint-down(medium) {
+        padding-bottom: 2rem;
+  
+        a:not(:last-child) {
+          margin-right: 1rem;
+        }
+      
+      }
+
+      @include breakpoint-up(large) {
+        grid-area: icons2;
+        align-self: end;
+        
+        a {
+          margin-right: 0.5rem;
+        }
+      }
+    }
+  }
+
+  &_links {  
+    color: $white;
+    font-size: 0.835rem;
+    transition: color 300ms ease-in-out;
+    
+    a:hover {
+      color: $limeGreen;
+    }
+
+    @include breakpoint-down(medium) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    @include breakpoint-up(large) {
+      display: grid;
+    }
+
+    &.set1 {
+      a {
+        padding-bottom: 1rem;
+      }
+  
+      @include breakpoint-up(large) {
+        display: grid;
+        justify-items: start;
+        grid-area: links1;
+        line-height: 1.25;
+      }
+
+    }
+
+    &.set2 {
+      @include breakpoint-down(medium) {
+        padding-bottom: 2rem;
+  
+        a:not(:last-child) {
+          padding-bottom: 1rem;
+        }
+      }
+
+      @include breakpoint-up(large) {
+        justify-items: start;
+        grid-area: links2;
+      }
+    }
+
+  }
+
+  &_request {
+    @include breakpoint-down(medium) {
+      a {
+        margin-bottom: 2rem;
+      }
+    }
+
+    @include breakpoint-up(large) {
+      grid-area: request1;
+      justify-self: end;
+      text-align: right;
+    }
+  }
+
+  &_copyright {
+    color: $grayishBlue;
+    font-size: 0.9375rem;
+    
+
+    @include breakpoint-up(large) {
+      grid-area: request2;
+      justify-self: end;
+      align-self: end;
+    }
+  }
+}

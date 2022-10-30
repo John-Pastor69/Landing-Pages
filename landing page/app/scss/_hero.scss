@@ -1,0 +1,80 @@
+.hero {
+
+  background-color: $veryLightGray;
+
+  .container {
+
+    @include breakpoint-up(large) {
+      display: flex;
+      align-items: center;
+    }
+  
+  }
+  
+  &_image {
+    position: relative;
+    background-image: url(/easybank-landing-page-master/images/bg-intro-mobile.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    min-height: 17.5rem;
+    
+    @include breakpoint-up(large) {
+      flex: 3;
+      order: 2;
+      height: 41rem;
+      background-image: none;
+      //background-image: url(/easybank-landing-page-master/images/bg-intro-desktop.svg);
+      //background-position: left center;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center bottom;
+
+      @include breakpoint-up(large) {
+        background-image: url(/easybank-landing-page-master/images/bg-intro-desktop.svg);
+        width: 150%;
+        background-size: 126%;
+        background-position: -2% 74%;
+      }
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      height: 105%;
+      width: 84%;
+      left: 8%;
+      background-size: 105%;
+      background-repeat: no-repeat;
+      background-position: center bottom;
+      background-image: url(/easybank-landing-page-master/images/image-mockups.png);
+      
+
+      @include breakpoint-up(large) {
+        height: 114%;
+        width: 115%;
+        background-size: 90%;
+        background-image: url(/easybank-landing-page-master/images/image-mockups.png);
+        left: 21%;
+      }
+    }
+
+  }
+
+  &_text {
+    text-align: center;
+
+    @include breakpoint-up(large) {
+      flex: 2;
+      order: 1;
+      text-align: left;
+    }
+  }
+}
